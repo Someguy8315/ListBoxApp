@@ -3,7 +3,7 @@ from typing import Optional
 import wx
 
 
-class MyFrame(wx.Frame):
+class AppWindow(wx.Frame):
     def __init__(self, parent: Optional[wx.Frame], title: str) -> None:
         super().__init__(parent, title=title)
         self.SetSize((400, 400))
@@ -62,5 +62,5 @@ class MyFrame(wx.Frame):
 
 if __name__ == "__main__":
     app = wx.App()
-    MyFrame(None, "App")
+    AppWindow(None, "ListBox App")
     app.MainLoop()
