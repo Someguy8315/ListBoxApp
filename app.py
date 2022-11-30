@@ -4,6 +4,8 @@ import wx
 
 
 class AppWindow(wx.Frame):
+    """Class containing the required functionality of a basic ListBox App"""
+
     def __init__(self, parent: Optional[wx.Frame], title: str) -> None:
         super().__init__(parent, title=title)
         self.SetSize((400, 400))
@@ -25,18 +27,22 @@ class AppWindow(wx.Frame):
         self.Show()
 
     def add_label(self) -> None:
+        """Add the topmost label to the GUI"""
         label = wx.StaticText(self, label="Basic List")
         self.hbox.Add(label, flag=wx.ALL, border=10)
 
     def add_listbox(self) -> None:
+        """Add the main listbox that will contain all the items"""
         self.listbox = wx.ListBox(self, size=(120, 150))
         self.vbox.Add(self.listbox, flag=wx.ALL | wx.CENTER, border=5)
 
     def add_textbox(self) -> None:
+        """Add the main textbox used for adding items to the listbox"""
         self.textbox = wx.TextCtrl(self)
         self.vbox.Add(self.textbox, flag=wx.ALL | wx.CENTER, border=5)
 
     def add_buttons(self) -> None:
+        """Add the buttons for performing basic operations on the listbox"""
         hbox = wx.BoxSizer(wx.HORIZONTAL)
 
         insert_button = wx.Button(self, label="Insert Item")
