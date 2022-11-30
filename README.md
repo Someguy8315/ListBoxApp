@@ -1,7 +1,5 @@
 ## Basic ListBox app
 
----
-
 ### Setup
 
 - Install `anaconda` from [here](https://www.anaconda.com/)
