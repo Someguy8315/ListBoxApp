@@ -11,9 +11,7 @@ class AppWindow(wx.Frame):
         super().__init__(parent, title=title)
         self.SetSize((400, 400))
 
-        self.hbox = wx.BoxSizer(wx.HORIZONTAL)
         self.vbox = wx.BoxSizer(wx.VERTICAL)
-        self.vbox.Add(self.hbox, flag=wx.ALL | wx.CENTER)
         self.listbox = wx.ListBox(self, size=(120, 150))
         self.textbox = wx.TextCtrl(self)
 
@@ -32,7 +30,7 @@ class AppWindow(wx.Frame):
         label = wx.StaticText(self, label="Basic List")
         font = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, True)
         label.SetFont(font)
-        self.hbox.Add(label, flag=wx.ALL, border=10)
+        self.vbox.Add(label, flag=wx.ALL | wx.CENTER, border=5)
 
     def add_listbox(self) -> None:
         """Add the main listbox that will contain all the items"""
