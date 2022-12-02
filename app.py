@@ -28,8 +28,7 @@ class AppWindow(wx.Frame):
     def add_label(self) -> None:
         """Add the topmost label to the GUI"""
         label = wx.StaticText(self, label="Basic List")
-        font = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, True)
-        label.SetFont(font)
+        label.SetFont(wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, True))
         self.vbox.Add(label, flag=wx.ALL | wx.CENTER, border=5)
 
     def add_listbox(self) -> None:
