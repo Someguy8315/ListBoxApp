@@ -1,7 +1,7 @@
+import logging
 from typing import Optional
 
 import wx
-import logging
 
 
 class AppWindow(wx.Frame):
@@ -60,15 +60,28 @@ class AppWindow(wx.Frame):
 
         self.vbox.Add(hbox, flag=wx.ALL | wx.CENTER)
 
+        rename_button = wx.Button(self, label="Rename Item")
+        rename_button.Bind(wx.EVT_BUTTON, self.on_rename_btn_click)
+        self.vbox.Add(rename_button, flag=wx.ALL | wx.CENTER, border=5)
+
     def on_insert_btn_click(self, _: wx.CommandEvent) -> None:
         self.listbox.Append(self.textbox.GetValue())
 
     def on_remove_btn_click(self, _: wx.CommandEvent) -> None:
-        selected_element: int = self.listbox.GetSelection()
-        if selected_element != wx.NOT_FOUND:
-            self.listbox.Delete(selected_element)
+        selected_element_idx: int = self.listbox.GetSelection()
+        if selected_element_idx != wx.NOT_FOUND:
+            self.listbox.Delete(selected_element_idx)
         elif self.listbox.GetCount() == 0:
             logging.warning("ListBox is empty!")
+
+    def on_rename_btn_click(self, _: wx.CommandEvent) -> None:
+        selected_element_idx: int = self.listbox.GetSelection()
+        if selected_element_idx != wx.NOT_FOUND:
+            self.listbox.SetString(selected_element_idx, self.textbox.GetValue())
+        elif self.listbox.GetCount() == 0:
+            logging.warning("ListBox is empty!")
+        else:
+            logging.warning("No item was selected")
 
 
 if __name__ == "__main__":
