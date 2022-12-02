@@ -14,8 +14,8 @@ class AppWindow(wx.Frame):
         self.hbox = wx.BoxSizer(wx.HORIZONTAL)
         self.vbox = wx.BoxSizer(wx.VERTICAL)
         self.vbox.Add(self.hbox, flag=wx.ALL | wx.CENTER)
-        self.listbox: Optional[wx.ListBox] = None
-        self.textbox: Optional[wx.TextCtrl] = None
+        self.listbox = wx.ListBox(self, size=(120, 150))
+        self.textbox = wx.TextCtrl(self)
 
         # layout
         self.add_label()
@@ -36,13 +36,11 @@ class AppWindow(wx.Frame):
 
     def add_listbox(self) -> None:
         """Add the main listbox that will contain all the items"""
-        self.listbox = wx.ListBox(self, size=(120, 150))
         self.vbox.Add(self.listbox, flag=wx.ALL | wx.CENTER, border=5)
 
     def add_textbox(self) -> None:
         """Add the main textbox used for adding items to the listbox"""
         label = wx.StaticText(self, label="List item name")
-        self.textbox = wx.TextCtrl(self)
         self.vbox.Add(label, flag=wx.ALL | wx.CENTER)
         self.vbox.Add(self.textbox, flag=wx.ALL | wx.CENTER, border=5)
 
