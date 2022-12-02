@@ -8,4 +8,5 @@
     * `python==3.7.15`
     * `wxPython`
 - Install PyCharm from [here](https://www.jetbrains.com/pycharm/)
-- Change the PyCharm `System Interpreter` to `Python 3.7 (dev)` 
+- In PyCharm, go to `Settings -> Project: ListBoxApp -> Python Interpreter` and add the 
+existing `dev` conda environment
