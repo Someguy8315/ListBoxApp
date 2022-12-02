@@ -1,6 +1,7 @@
 from typing import Optional
 
 import wx
+import logging
 
 
 class AppWindow(wx.Frame):
@@ -66,8 +67,8 @@ class AppWindow(wx.Frame):
         selected_element: int = self.listbox.GetSelection()
         if selected_element != wx.NOT_FOUND:
             self.listbox.Delete(selected_element)
-        else:
-            print(f"Warning listbox is empty!")
+        elif self.listbox.GetCount() == 0:
+            logging.warning("ListBox is empty!")
 
 
 if __name__ == "__main__":
