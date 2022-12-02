@@ -63,7 +63,7 @@ class AppWindow(wx.Frame):
         self.listbox.Append(self.textbox.GetValue())
 
     def on_remove_btn_click(self, _: wx.CommandEvent) -> None:
-        selected_element = self.listbox.GetSelection()
+        selected_element: int = self.listbox.GetSelection()
         if selected_element != wx.NOT_FOUND:
             self.listbox.Delete(selected_element)
         else:
