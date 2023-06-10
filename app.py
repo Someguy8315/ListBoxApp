@@ -2,6 +2,8 @@ import logging
 
 import wx
 
+DEFAULT_BUTTON_SIZE = (91, 23)
+
 
 class AppWindow(wx.Frame):
     """Class containing the required functionality of a basic ListBox App"""
@@ -44,11 +46,11 @@ class AppWindow(wx.Frame):
         """Add the buttons for performing basic operations on the listbox"""
         hbox = wx.BoxSizer(wx.HORIZONTAL)
 
-        insert_button = wx.Button(self, label="Insert Item")
+        insert_button = wx.Button(self, label="Insert Item", size=DEFAULT_BUTTON_SIZE)
         insert_button.Bind(wx.EVT_BUTTON, self.on_insert_btn_click)
         hbox.Add(insert_button, flag=wx.ALL | wx.CENTER, border=5)
 
-        remove_button = wx.Button(self, label="Remove Item")
+        remove_button = wx.Button(self, label="Remove Item", size=DEFAULT_BUTTON_SIZE)
         remove_button.Bind(wx.EVT_BUTTON, self.on_remove_btn_click)
         hbox.Add(remove_button, flag=wx.ALL | wx.CENTER, border=5)
 
@@ -57,6 +59,10 @@ class AppWindow(wx.Frame):
         rename_button = wx.Button(self, label="Rename Item")
         rename_button.Bind(wx.EVT_BUTTON, self.on_rename_btn_click)
         self.vbox.Add(rename_button, flag=wx.ALL | wx.CENTER, border=5)
+
+        clear_list_button = wx.Button(self, label="Clear list", size=DEFAULT_BUTTON_SIZE)
+        clear_list_button.Bind(wx.EVT_BUTTON, self.on_clear_btn_click)
+        self.vbox.Add(clear_list_button, flag=wx.ALL | wx.CENTER, border=5)
 
     def on_insert_btn_click(self, _: wx.CommandEvent) -> None:
         text: str = self.textbox.GetValue()
@@ -78,6 +84,10 @@ class AppWindow(wx.Frame):
             logging.warning("ListBox is empty!")
         else:
             logging.warning("No item was selected")
+
+    def on_clear_btn_click(self, _: wx.CommandEvent) -> None:
+        if self.listbox.GetStrings():
+            self.listbox.Clear()
 
 
 if __name__ == "__main__":
