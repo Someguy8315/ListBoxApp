@@ -13,7 +13,7 @@ class AppWindow(wx.Frame):
         self.SetSize((400, 400))
 
         self.vbox = wx.BoxSizer(wx.VERTICAL)
-        self.listbox = wx.ListBox(self, size=(120, 150))
+        self.listbox = wx.ListBox(self, size=(120, 150), style=wx.LB_EXTENDED)
         self.textbox = wx.TextCtrl(self)
 
         # layout
@@ -70,19 +70,17 @@ class AppWindow(wx.Frame):
             self.listbox.Append(text)
 
     def on_remove_btn_click(self, _: wx.CommandEvent) -> None:
-        selected_element_idx: int = self.listbox.GetSelection()
-        if selected_element_idx != wx.NOT_FOUND:
-            self.listbox.Delete(selected_element_idx)
-        elif self.listbox.GetCount() == 0:
-            logging.warning("ListBox is empty!")
+        selected_element_idx_list: list[int] = self.listbox.GetSelections()
+        
+        for index in reversed(selected_element_idx_list):
+            self.listbox.Delete(index)
 
     def on_rename_btn_click(self, _: wx.CommandEvent) -> None:
-        selected_element_idx: int = self.listbox.GetSelection()
-        if selected_element_idx != wx.NOT_FOUND:
+        selected_element_idx_list: list[int] = self.listbox.GetSelections()
+
+        for selected_element_idx in selected_element_idx_list:
             self.listbox.SetString(selected_element_idx, self.textbox.GetValue())
-        elif self.listbox.GetCount() == 0:
-            logging.warning("ListBox is empty!")
-        else:
+        if not selected_element_idx_list:
             logging.warning("No item was selected")
 
     def on_clear_btn_click(self, _: wx.CommandEvent) -> None:
