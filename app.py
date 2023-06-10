@@ -1,5 +1,4 @@
 import logging
-from typing import Optional
 
 import wx
 
@@ -7,7 +6,7 @@ import wx
 class AppWindow(wx.Frame):
     """Class containing the required functionality of a basic ListBox App"""
 
-    def __init__(self, parent: Optional[wx.Frame], title: str) -> None:
+    def __init__(self, parent: wx.Frame | None, title: str) -> None:
         super().__init__(parent, title=title)
         self.SetSize((400, 400))
 
@@ -60,7 +59,9 @@ class AppWindow(wx.Frame):
         self.vbox.Add(rename_button, flag=wx.ALL | wx.CENTER, border=5)
 
     def on_insert_btn_click(self, _: wx.CommandEvent) -> None:
-        self.listbox.Append(self.textbox.GetValue())
+        text: str = self.textbox.GetValue()
+        if text != "":
+            self.listbox.Append(text)
 
     def on_remove_btn_click(self, _: wx.CommandEvent) -> None:
         selected_element_idx: int = self.listbox.GetSelection()
