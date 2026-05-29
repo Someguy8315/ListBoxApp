@@ -2,7 +2,7 @@ import logging
 
 import wx
 
-DEFAULT_BUTTON_SIZE = (91, 23)
+DEFAULT_BUTTON_SIZE = wx.Size(91, 23)
 
 
 class AppWindow(wx.Frame):
@@ -10,10 +10,10 @@ class AppWindow(wx.Frame):
 
     def __init__(self, parent: wx.Frame | None, title: str) -> None:
         super().__init__(parent, title=title)
-        self.SetSize((400, 400))
+        self.SetSize(wx.Size(400, 400))
 
         self.vbox = wx.BoxSizer(wx.VERTICAL)
-        self.listbox = wx.ListBox(self, size=(120, 150), style=wx.LB_EXTENDED)
+        self.listbox = wx.ListBox(self, size=wx.Size(120, 150), style=wx.LB_EXTENDED)
         self.textbox = wx.TextCtrl(self)
 
         # layout

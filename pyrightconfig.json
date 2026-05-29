@@ -1,8 +1,0 @@
-{
-    "include": [
-        "app.py"
-    ],
-    "pythonVersion": "3.11",
-    "pythonPlatform": "Windows",
-    "useLibraryCodeForTypes": true,
-}

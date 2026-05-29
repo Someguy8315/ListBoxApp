@@ -10,3 +10,10 @@ dependencies = ["wxpython"]
 wxpython = [
   { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl", marker = "sys_platform == 'linux'" },
 ]
+
+[tool.pyrefly]
+python-version = "3.13"
+project-includes = [
+    "**/*.py*",
+    "**/*.ipynb",
+]

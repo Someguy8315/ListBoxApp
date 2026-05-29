@@ -9,3 +9,7 @@
 ### Running
 
 - `uv run app.py`
+
+### Type checking
+
+- `uvx pyrefly check`
