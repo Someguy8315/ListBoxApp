@@ -1,0 +1,12 @@
+[project]
+name = "listbox-app"
+version = "0.1.0"
+description = "A basic ListBox app"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["wxpython"]
+
+[tool.uv.sources]
+wxpython = [
+  { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl", marker = "sys_platform == 'linux'" },
+]
