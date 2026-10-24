@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 5
 requires-python = ">=3.13"
 resolution-markers = [
     "sys_platform == 'linux'",
@@ -12,13 +12,13 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "wxpython", version = "4.2.5", source = { registry = "https://pypi.org/simple" }, marker = "sys_platform != 'linux'" },
-    { name = "wxpython", version = "4.2.5", source = { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl" }, marker = "sys_platform == 'linux'" },
+    { name = "wxpython", version = "4.2.5", source = { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp314-cp314-linux_x86_64.whl" }, marker = "sys_platform == 'linux'" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "wxpython", marker = "sys_platform != 'linux'" },
-    { name = "wxpython", marker = "sys_platform == 'linux'", url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl" },
+    { name = "wxpython", marker = "sys_platform == 'linux'", url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp314-cp314-linux_x86_64.whl" },
 ]
 
 [[package]]
@@ -45,12 +45,12 @@ wheels = [
 [[package]]
 name = "wxpython"
 version = "4.2.5"
-source = { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl" }
+source = { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp314-cp314-linux_x86_64.whl" }
 resolution-markers = [
     "sys_platform == 'linux'",
 ]
 wheels = [
-    { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl", hash = "sha256:e5e9a6150415a5fad42e3e9c8eeed1f61a2c3d31ef716d0dc132ed41923e85e7" },
+    { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp314-cp314-linux_x86_64.whl", hash = "sha256:619d3a48225f072ab7de35267af13c7b801d2ce5c71ba1806a8f8e0ffeea69ec" },
 ]
 
 [package.metadata]

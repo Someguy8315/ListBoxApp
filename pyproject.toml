@@ -7,8 +7,10 @@ requires-python = ">=3.13"
 dependencies = ["wxpython"]
 
 [tool.uv.sources]
+# PyPI has no Linux wheels, but wxPython publishes per-distro builds here.
+# cp314 requires Python 3.14; bump the filename when moving to 3.15+.
 wxpython = [
-  { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp313-cp313-linux_x86_64.whl", marker = "sys_platform == 'linux'" },
+  { url = "https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-24.04/wxpython-4.2.5-cp314-cp314-linux_x86_64.whl", marker = "sys_platform == 'linux'" },
 ]
 
 [tool.pyrefly]
